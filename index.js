@@ -13,11 +13,11 @@ app.get("/", (req, res) => {
 app.get('/quote', async (req, res) => {
     try {
         const result = await axios.get('https://api.animechan.io/v1/quotes/random');
-        //console.log(result.data.data.content);
+        //console.log(result.data);
         res.render('index.ejs', {
-            quote: result.data.content,
-            character: result.data.character,
-            anime: result.data.anime,
+            quote: result.data.data.content,
+            character: result.data.data.character.name,
+            anime: result.data.data.anime.name,
 
         });
     } catch (error) {
