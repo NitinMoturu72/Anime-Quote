@@ -14,6 +14,7 @@ app.get('/quote', async (req, res) => {
     try {
         const result = await axios.get('https://api.animechan.io/v1/quotes/random');
         //console.log(result.data);
+        //console.log(result.data.data.content);
         res.render('index.ejs', {
             quote: result.data.data.content,
             character: result.data.data.character.name,
